@@ -1,6 +1,19 @@
 <?php
 require_once '../utils/connect-db.php';
 
+
+$sql = "SELECT * FROM `showtypes`;";
+
+try {
+    
+    $stmt = $pdo->query($sql);
+    $spectacles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $error) {
+    echo "Erreur de requète : " . $error->getMessage();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +27,14 @@ require_once '../utils/connect-db.php';
     <h1>Tous les types de spectacles possibles</h1>
 
     <ul>
+    <?php
+        foreach($spectacles as $spectacle){
+        ?>
+        <li><?= $spectacle['type'] ?></li>
+
+        <?php
+        }
+        ?>
         
     </ul>
     
