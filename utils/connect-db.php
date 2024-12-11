@@ -1,7 +1,5 @@
 <?php
 try {
-
-
     $host = "localhost";
     $dbname = "colyseum";
     $login = "root";
